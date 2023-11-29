@@ -32,7 +32,7 @@ public class Motherboard {
     public String GetChipset() {
         return chipset;
     }
-    public void input_mrbrd()
+    public void input()
     {
         String name_mrbrd, chipset;
 

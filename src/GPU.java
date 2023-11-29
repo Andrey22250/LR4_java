@@ -50,7 +50,7 @@ public class GPU {
     public int GetMin_TDP() {
         return min_TDP;
     }
-    public void input_GPU()
+    public void input()
     {
         {
             String name_gpu;

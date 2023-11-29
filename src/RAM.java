@@ -39,7 +39,7 @@ public class RAM {
     public int getMem() {
         return mem;
     }
-    public void input_RAM()
+    public void input()
     {
         String type_ddr;
         int frequency, mem;

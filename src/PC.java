@@ -62,10 +62,10 @@ public class PC
 
         System.out.print("Введите стоимость сборки: ");
         price = in.nextFloat();
-        cpu.input_CPU();
-        gpu.input_GPU();
-        ram.input_RAM();
-        mrbrd.input_mrbrd();
+        cpu.input();
+        gpu.input();
+        ram.input();
+        mrbrd.input();
 
         SetPC(price,cpu,gpu,ram,mrbrd);
     }
@@ -90,5 +90,29 @@ public class PC
         System.out.printf("ОЗУ: %s, %d частота, %d объём\n", ram.GetType_ddr(), ram.GetFrequency(),ram.getMem());
         System.out.printf("Материнская плата: %s, %s чипсет\n", mrbrd.GetName_mrbrd(), mrbrd.GetChipset());
         System.out.printf("Цена сборки: %.2f\n\n",price);
+    }
+    public static void pc_item(int option)
+    {
+        switch (option) {
+            case 1 -> new CPU();
+            case 2 -> new GPU();
+            case 3 -> new RAM();
+            case 4 -> new Motherboard();
+            default -> throw new IllegalArgumentException("Некорректный формат данных!");
+        }
+    }
+    static class Component
+    {
+        public static PC CreateComp(String name)
+        {
+            switch (name) {
+                case "cpu" -> new CPU();
+                case "gpu" -> new GPU();
+                case "ram" -> new RAM();
+                case "mrbrd" -> new Motherboard();
+                default -> throw new IllegalArgumentException("Некорректный формат данных!");
+            };
+            return null;
+        }
     }
 }

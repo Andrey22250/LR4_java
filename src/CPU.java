@@ -47,7 +47,7 @@ public class CPU {
         return treads;
     }
 
-    public void input_CPU()
+    public void input()
     {
         String name_cpu;
         int frequency, cores, treads;

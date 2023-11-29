@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Build {
-    private int number = 1;
+    private static int number = 1;
     private int numBuild;
     private PC pc;
     private String client;
@@ -17,6 +17,15 @@ public class Build {
     {
         this.pc = new PC();
         this.status = Status.CREATE;
+        this.numBuild = number;
+        this.client = client;
+
+        number++;
+    }
+    public Build(int Stat)
+    {
+        this.pc = new PC();
+        this.status = Status.intToStatus(Stat);
         this.numBuild = number;
         this.client = client;
 
@@ -46,6 +55,7 @@ public class Build {
             System.exit(-1);
         }
     }
+    public static int GetNumber() {return number;}
     public int GetNumBuild() {
         return numBuild;
     }
@@ -93,6 +103,19 @@ public class Build {
         else {
             System.out.println("Ошибка ввода данных!");
             System.exit(-1);
+        }
+    }
+    static class Stat
+    {
+        public static int GetStat(String name)
+        {
+            return switch (name)
+            {
+                case "Создан" -> 0;
+                case "В сборке" -> 1;
+                case "Готов к выдаче" -> 2;
+                default -> throw new IllegalArgumentException("Некорректный формат данных!");
+            };
         }
     }
 }
